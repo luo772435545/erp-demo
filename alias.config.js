@@ -6,6 +6,7 @@ module.exports = {
             'vue$': resolve('vue/dist/vue.esm.js'),
             '#@': resolve('public'),
             '@': resolve('src'),
+            '@s': resolve('setting'),
             '@v': resolve('src/views')
         }
     }

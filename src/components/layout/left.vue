@@ -38,7 +38,7 @@
 </template >
 
 <script >
-import menuData from '@/api/menu/index.js'
+import menuData from '@/api/menu'
 import commonMixin from '@/mixin/commonMixin';
 export default {
   name: 'left',
