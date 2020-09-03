@@ -1,6 +1,6 @@
-<template >
+<template>
   <Menu>
-    <Submenu></Submenu>
+    <Submenu />
 
     <Submenu name="1">
       <template slot="title">
@@ -35,75 +35,77 @@
       </MenuGroup>
     </Submenu>
   </Menu>
-</template >
+</template>
 
 <script >
 import menuData from '@/api/menu'
-import commonMixin from '@/mixin/commonMixin';
+import commonMixin from '@/mixin/commonMixin'
+
 export default {
-  name: 'left',
+  name: 'Left',
   mixins: [commonMixin],
-  data () {
+  props: {},
+  data() {
     return {
       menuData: []
-    };
+    }
   },
-  created () {
-    this.recursionMenu();
-  },
-  props: {},
   watch: {},
+  created() {
+    this.recursionMenu()
+  },
   methods: {
-    recursionMenu () {
+    recursionMenu() {
       /**
-       * 递归菜单数据
-       * */
-      let menuData = Array.from({ length: 15 }, (x, y) => {
+             * 递归菜单数据
+             * */
+      const menuData = Array.from({ length: 15 }, (x, y) => {
         return {
           mainTitle: '菜单' + y,
           id: y + 1,
           pid: 0 + parseInt(Math.random() * y)
-        };
-      });
-      console.log(menuData);
+        }
+      })
+      console.log(menuData)
       // 01 方式每个元素遍历全部元素找到子元素  0.203125ms
       /* console.time();
-       let menu = this.JSONCopy(menuData)
-       let obj = {};
-       const PID = 0; // 初始ID
-       a(menu,0,menu.filter(i=> i.pid === PID));
-       function a (data,pid,arr) {
-       data.forEach(i=>{
-       arr.forEach(j=>{
-       if (i.pid === j.id) {
-       j.children ? j.children.push(i) : j.children = [i];
-       // 每个元素只全局遍历一遍
-       if (!obj[i.id]) {
-       obj[j.id] = true;
-       a(data,i.id,j.children)
-       }
-       }
-       })
-       })
-       }
-       console.timeEnd(); */
+             let menu = this.JSONCopy(menuData)
+             let obj = {};
+             const PID = 0; // 初始ID
+             a(menu,0,menu.filter(i=> i.pid === PID));
+             function a (data,pid,arr) {
+             data.forEach(i=>{
+             arr.forEach(j=>{
+             if (i.pid === j.id) {
+             j.children ? j.children.push(i) : j.children = [i];
+             // 每个元素只全局遍历一遍
+             if (!obj[i.id]) {
+             obj[j.id] = true;
+             a(data,i.id,j.children)
+             }
+             }
+             })
+             })
+             }
+             console.timeEnd(); */
       // 02 先进行分组 然后归类 0.090087890625ms
-      let menu = this.JSONCopy(menuData);
-      let obj = {};
-      const PID = 0;
+      const menu = this.JSONCopy(menuData)
+      const obj = {}
+      const PID = 0
       menu.forEach(i => {
-        !obj[i.pid] ? obj[i.pid] = [i] : obj[i.pid].push(i);
-      });
-      for (let key in obj) {
+        !obj[i.pid] ? obj[i.pid] = [i] : obj[i.pid].push(i)
+      })
+      for (const key in obj) {
         obj[key].forEach(i => {
-          i.children = obj[i.id] || [];
-        });
+          i.children = obj[i.id] || []
+        })
       }
-      console.log(obj[PID]);
-    },
+      console.log(obj[PID])
+    }
 
   }
-};
+}
+
 </script >
 
 <style scoped >
