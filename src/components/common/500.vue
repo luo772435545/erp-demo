@@ -85,19 +85,23 @@
     <div class="error500-body-con">
       <Card>
         <div class="error500-body-con-title">
-          5<span class="error500-0-span"><Icon type="social-freebsd-devil"></Icon></span><span class="error500-0-span"><Icon type="social-freebsd-devil"></Icon></span>
+          5<span class="error500-0-span"><Icon type="social-freebsd-devil" /></span><span class="error500-0-span"><Icon type="social-freebsd-devil" /></span>
         </div>
         <p class="error500-body-con-message">Oops! the server is wrong</p>
         <div class="error500-btn-con">
-          <Button @click="goHome"
-                  size="large"
-                  style="width: 200px;"
-                  type="text">{{t('common.goHome')}}
+          <Button
+            size="large"
+            style="width: 200px;"
+            type="text"
+            @click="goHome"
+          >{{ t('common.goHome') }}
           </Button>
-          <Button @click="backPage"
-                  size="large"
-                  style="width: 200px;margin-left: 40px;"
-                  type="primary">{{t('common.toPrevPage')}}
+          <Button
+            size="large"
+            style="width: 200px;margin-left: 40px;"
+            type="primary"
+            @click="backPage"
+          >{{ t('common.toPrevPage') }}
           </Button>
         </div>
       </Card>
@@ -108,14 +112,14 @@
 export default {
   name: 'Error500',
   methods: {
-    backPage () {
-      this.$router.go(-1);
+    backPage() {
+      this.$router.go(-1)
     },
-    goHome () {
+    goHome() {
       this.$router.push({
         name: 'home_index'
-      });
+      })
     }
   }
-};
+}
 </script>

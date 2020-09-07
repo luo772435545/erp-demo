@@ -42,7 +42,7 @@ import menuData from '@/api/menu'
 import commonMixin from '@/mixin/commonMixin'
 
 export default {
-  name: 'Left',
+  name: 'VLeft',
   mixins: [commonMixin],
   props: {},
   data() {

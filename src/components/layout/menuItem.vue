@@ -1,24 +1,22 @@
-<template >
-
-</template >
+<template />
 
 <script >
-import api from '@/api/api';
-import Mixin from '@/components/mixin/common_mixin';
+import api from '@/api/api'
+import Mixin from '@/components/mixin/common_mixin'
 
 export default {
-  name: 'menuItem',
+  name: 'MenuItem',
   mixins: [Mixin],
-  data () {
-    return {};
+  props: {},
+  data() {
+    return {}
   },
-  created () {
+  watch: {},
+  created() {
 
   },
-  props: {},
-  watch: {},
   methods: {}
-};
+}
 </script >
 
 <style scoped >

@@ -1,12 +1,12 @@
 export default {
-  data () {
+  data() {
     return {
 
     }
   },
-  methods : {
-    JSONCopy (data) {
-      return JSON.parse(JSON.stringify(data));
+  methods: {
+    JSONCopy(data) {
+      return JSON.parse(JSON.stringify(data))
     }
   }
 }

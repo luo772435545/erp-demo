@@ -1,5 +1,5 @@
 const path = require('path');
-const proxyFile = require(resolve('setting/proxy/index'));
+const proxyFile = require(resolve('./setting/proxy.js'));
 /*const CompressionPlugin = require('compression-webpack-plugin')*/
 function resolve (dir) {
     return path.join(__dirname, dir);
@@ -41,6 +41,7 @@ module.exports = {
             .set('vue$', 'vue/dist/vue.esm.js')
             .set('#@', resolve('public'))
             .set('@', resolve('src'))
+            .set('@v', resolve('src/views'))
             .set('@s', resolve('setting'));
         config.resolve.extensions
             .add('.css');
@@ -62,7 +63,7 @@ module.exports = {
                                     chunks: 'initial' // only package third parties that are initially dependent
                                 },
                                 elementUI: {
-                                    name: 'chunk-iview',
+                                    name: 'chunk-view-design',
                                     priority: 20, //
                                     test: /[\\/]node_modules[\\/]_?view-design(.*)/ // in order to adapt to cnpm
                                 },

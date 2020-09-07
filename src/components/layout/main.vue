@@ -1,26 +1,26 @@
-<template >
+<template>
   <div>
-    <left></left>
+    <left />
   </div>
-</template >
+</template>
 
 <script >
 
-import Left from './left';
+import Left from './left'
 export default {
-  name: 'vMain',
+  name: 'VMain',
   components: { Left },
   mixins: [],
-  data () {
-    return {};
+  props: {},
+  data() {
+    return {}
   },
-  created () {
+  watch: {},
+  created() {
 
   },
-  props: {},
-  watch: {},
   methods: {}
-};
+}
 </script >
 
 <style scoped >
